@@ -92,7 +92,7 @@ const defaultHobbies: HobbyArticle[] = [
     introduction:
       "Le bricolage permet de passer rapidement d’une idée à un objet tangible. Il oblige à composer avec les dimensions, les matériaux, les outils disponibles et les imprévus du réel.",
     date: "Au fil des besoins",
-    readingTime: "3 min",
+    readingTime: "4 min",
     visual: "paper",
     sections: [
       {
@@ -107,6 +107,13 @@ const defaultHobbies: HobbyArticle[] = [
         paragraphs: [
           "Un plan donne une direction, mais la fabrication révèle toujours de nouvelles contraintes. Il faut mesurer à nouveau, corriger et parfois reprendre une étape.",
           "Cette progression par ajustements rend le résultat plus juste et développe une compréhension très concrète des matériaux.",
+        ],
+      },
+      {
+        title: "Prototyper avec l’impression 3D",
+        paragraphs: [
+          "L’impression 3D fait partie de mes outils préférés. Elle me permet de concevoir rapidement une pièce sur mesure, un support ou un prototype adapté à un besoin précis.",
+          "De la modélisation aux premiers essais, chaque impression aide à vérifier les dimensions, corriger la conception et obtenir une pièce réellement utile.",
         ],
       },
       {
