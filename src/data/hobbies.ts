@@ -37,9 +37,9 @@ const defaultHobbies: HobbyArticle[] = [
     ],
   },
   {
-    slug: "reparation-electronique",
+    slug: "reparation",
     category: "Électronique",
-    title: "Réparation électronique",
+    title: "Réparation",
     excerpt: "Diagnostiquer une panne, comprendre un circuit et prolonger la vie d’un appareil plutôt que le remplacer.",
     introduction:
       "La réparation électronique mélange observation, méthode et patience. Chaque appareil en panne devient une enquête où il faut remonter des symptômes jusqu’à leur cause.",
