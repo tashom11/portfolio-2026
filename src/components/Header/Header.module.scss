@@ -4,5 +4,9 @@
 .inner { height: 5.75rem; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; border-bottom: 1px solid var(--line); }
 .brand { font-weight: 650; letter-spacing: -.03em; span { color: var(--accent); margin-left: .2rem; font-size: .55em; vertical-align: top; } }
 .links { display: flex; gap: clamp(1.2rem, 3vw, 2.8rem); font-size: .84rem; a { position: relative; } a::after { content: ""; position: absolute; inset: auto 0 -.35rem; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .3s ease; } a:hover::after, a:focus-visible::after { transform: scaleX(1); transform-origin: left; } }
-.contact { justify-self: end; display: flex; gap: .55rem; align-items: center; font-size: .84rem; }
-@include below(md) { .inner { grid-template-columns: 1fr auto; height: 4.75rem; } .links { display: none; } .contact { font-size: .78rem; } }
+.actions { justify-self: end; display: flex; gap: clamp(.8rem, 2vw, 1.6rem); align-items: center; font-size: .84rem; }
+.hobbies { position: relative; &::after { content: ""; position: absolute; inset: auto 0 -.35rem; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .3s ease; } &:hover::after, &:focus-visible::after { transform: scaleX(1); transform-origin: left; } }
+.contact { display: flex; gap: .55rem; align-items: center; }
+.contactShort { display: none; }
+@include below(md) { .inner { grid-template-columns: 1fr auto; height: 4.75rem; } .mainNav { display: none; } .actions { font-size: .78rem; } }
+@include below(sm) { .actions { gap: .7rem; } .contactLong { display: none; } .contactShort { display: inline; } }

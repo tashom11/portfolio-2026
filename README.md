@@ -4,7 +4,7 @@ Portfolio personnel open source d’un développeur web avec cinq ans d’expér
 
 ## Aperçu
 
-La page présente le profil, une sélection de projets, le parcours professionnel, les compétences, les sujets techniques explorés et les moyens de contact. Les contenus temporaires sont indiqués entre crochets et doivent être remplacés avant publication.
+La page présente le profil, une sélection de projets, le parcours professionnel, les compétences, les sujets techniques explorés et les moyens de contact. Une section Hobbies complète l’ensemble avec une liste d’articles et des vues détaillées.
 
 ## Stack
 
@@ -69,7 +69,7 @@ public/           # Icônes et manifeste
 
 1. Copier `.env.example` vers `.env.local`.
 2. Renseigner le profil, les liens publics et les textes de présentation.
-3. Fournir les expériences, compétences, centres d’intérêt et projets sous forme de tableaux JSON.
+3. Fournir les expériences, compétences, centres d’intérêt, projets et articles Hobbies sous forme de tableaux JSON.
 4. Définir `PORTFOLIO_SITE_URL` avec l’adresse canonique du site.
 5. Remplacer les visuels CSS par des captures optimisées avec `next/image` si nécessaire.
 

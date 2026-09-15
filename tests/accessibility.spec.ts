@@ -125,6 +125,33 @@ test("laisse le contenu disponible sans JavaScript", async ({ browser }) => {
   await context.close();
 });
 
+test("propose une liste de hobbies et des vues détaillées", async ({ page }) => {
+  await page.goto("/hobbies");
+  await expect(page.getByRole("heading", { level: 1, name: "Hobbies." })).toBeVisible();
+
+  const firstArticle = page.locator("main article a").first();
+  await expect(firstArticle).toHaveAttribute("href", /^\/hobbies\//);
+  await firstArticle.click();
+
+  await expect(page.getByRole("link", { name: /Tous les hobbies/ })).toBeVisible();
+  await expect(page.locator("main article h1")).toBeVisible();
+  await expect(page.getByRole("navigation", { name: "Sommaire de l’article" })).toBeVisible();
+});
+
+test("ne présente aucune violation détectable sur les pages Hobbies", async ({ page }) => {
+  await page.goto("/hobbies");
+  let results = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+    .analyze();
+  expect(results.violations).toEqual([]);
+
+  await page.locator("main article a").first().click();
+  results = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+    .analyze();
+  expect(results.violations).toEqual([]);
+});
+
 test.describe("avec réduction des animations", () => {
   test.use({ reducedMotion: "reduce" });
 
