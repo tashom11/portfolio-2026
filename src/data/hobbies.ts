@@ -6,32 +6,38 @@ const defaultHobbies: HobbyArticle[] = [
     slug: "homelab",
     category: "Infrastructure",
     title: "Homelab",
-    excerpt: "Un environnement personnel pour héberger des services, expérimenter et mieux comprendre leur fonctionnement.",
+    excerpt: "Un environnement personnel pour héberger mes médias, protéger mes souvenirs et garder le contrôle sur mes services.",
     introduction:
-      "Mon homelab est un terrain d’apprentissage concret. J’y assemble du matériel, déploie des services et explore les sujets d’infrastructure dans un environnement que je peux modifier librement.",
+      "Mon homelab est à la fois un terrain d’apprentissage et une infrastructure utile au quotidien. J’y héberge des services choisis pour reprendre le contrôle sur mes médias, mes photos et mon réseau.",
     date: "En continu",
     readingTime: "5 min",
     visual: "night",
     sections: [
       {
-        title: "Construire pour comprendre",
+        title: "Retrouver ma médiathèque",
         paragraphs: [
-          "Installer un service soi-même permet de voir tout ce qui disparaît habituellement derrière une interface. Réseau, stockage, sauvegardes et supervision deviennent des problèmes concrets à résoudre.",
-          "Chaque évolution du homelab est l’occasion de tester une idée dans un environnement réel, mais sans les contraintes d’une infrastructure de production.",
+          "Jellyfin centralise les films issus de mes Blu-ray et me permet de les regarder facilement sur mes différents appareils. C’est la solution que j’ai trouvée pour continuer à profiter de ma collection alors que les lecteurs physiques deviennent de plus en plus rares.",
+          "Navidrome remplit le même rôle pour mes disques de musique. Léger et accessible depuis plusieurs applications, il rend ma collection disponible sans dépendre d’un service de streaming ni d’un lecteur devenu difficile à remplacer.",
         ],
       },
       {
-        title: "Des services réellement utiles",
+        title: "Protéger mes photos",
         paragraphs: [
-          "Le laboratoire ne sert pas uniquement à expérimenter. Il héberge aussi des outils utilisés au quotidien pour centraliser des fichiers, automatiser certaines tâches et garder le contrôle sur mes données.",
-          "L’objectif reste de construire un ensemble sobre, compréhensible et suffisamment fiable pour rendre un vrai service.",
+          "Immich sauvegarde et organise mes photos et vidéos dans une interface moderne. Je conserve ainsi une bibliothèque personnelle consultable facilement, tout en gardant la maîtrise du stockage et des sauvegardes.",
         ],
       },
       {
-        title: "Documenter et maintenir",
+        title: "Maîtriser le réseau et les accès",
         paragraphs: [
-          "Une installation utile doit pouvoir évoluer sans devenir incompréhensible. Je documente donc les choix, les dépendances et les procédures de restauration.",
-          "Cette discipline transforme une accumulation de machines en système maintenable et facilite chaque nouvelle expérimentation.",
+          "Pi-hole filtre les publicités et de nombreux domaines de suivi directement au niveau du réseau. Tous les appareils de la maison en bénéficient sans nécessiter une configuration individuelle.",
+          "Nginx Proxy Manager centralise l’accès aux applications, les noms de domaine et les certificats HTTPS. Il simplifie le routage vers chaque service et évite de mémoriser une collection d’adresses et de ports.",
+        ],
+      },
+      {
+        title: "Surveiller et continuer à expérimenter",
+        paragraphs: [
+          "Beszel fournit une vue légère sur l’état des machines et des conteneurs. Processeur, mémoire, stockage et disponibilité deviennent lisibles au même endroit, ce qui aide à repérer rapidement un problème.",
+          "D’autres services rejoignent régulièrement le homelab pour les sauvegardes, l’automatisation ou de nouvelles expérimentations. Je conserve ceux qui apportent une utilité réelle et documente leur fonctionnement pour maintenir un ensemble compréhensible.",
         ],
       },
     ],
