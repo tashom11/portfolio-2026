@@ -163,6 +163,17 @@ test("propose les sites officiels des services du homelab", async ({ page }) => 
   }
 });
 
+test("ouvre la page Hobbies en haut", async ({ page }) => {
+  await page.goto("/");
+  await page.evaluate(() => window.scrollTo(0, document.body.scrollHeight));
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBeGreaterThan(0);
+
+  await page.getByRole("link", { name: "Hobbies" }).click();
+
+  await expect(page).toHaveURL(/\/hobbies$/);
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+});
+
 test.describe("avec réduction des animations", () => {
   test.use({ reducedMotion: "reduce" });
 
