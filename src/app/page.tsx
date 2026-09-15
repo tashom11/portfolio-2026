@@ -1,4 +1,5 @@
 import About from "@/components/About/About";
+import BackToTop from "@/components/BackToTop/BackToTop";
 import Contact from "@/components/Contact/Contact";
 import Experience from "@/components/Experience/Experience";
 import Footer from "@/components/Footer/Footer";
@@ -38,6 +39,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <BackToTop />
       <RevealObserver />
       <script
         type="application/ld+json"

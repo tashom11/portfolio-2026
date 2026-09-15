@@ -84,6 +84,18 @@ test("conserve une mise en page sans défilement horizontal à 320 px", async ({
   expect(dimensions.content).toBeLessThanOrEqual(dimensions.viewport);
 });
 
+test("permet de revenir en haut de la page", async ({ page }) => {
+  const backToTop = page.getByRole("button", { name: "Retour en haut de la page" });
+
+  await expect(backToTop).toBeHidden();
+  await page.locator("footer").scrollIntoViewIfNeeded();
+  await expect(backToTop).toBeVisible();
+
+  await backToTop.click();
+  await expect(page.locator("main")).toBeFocused();
+  await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
+});
+
 test("laisse le contenu disponible sans JavaScript", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
