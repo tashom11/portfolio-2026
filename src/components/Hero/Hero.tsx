@@ -7,7 +7,7 @@ export default function Hero() {
       <div className={`${styles.inner} shell`}>
         <div className={styles.eyebrow}><span>{profile.role}</span><span>{profile.location}</span></div>
         <h1 id="hero-title">
-          <span>Je transforme des idées</span>
+          <span>Je transforme des idées</span>{" "}
           <span>en expériences <em>utiles.</em></span>
         </h1>
         <div className={styles.bottom}>
