@@ -96,6 +96,23 @@ test("permet de revenir en haut de la page", async ({ page }) => {
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
 });
 
+test("maintient le retour en haut au-dessus du pied de page", async ({ page }) => {
+  for (const viewport of [{ width: 1280, height: 800 }, { width: 320, height: 800 }]) {
+    await page.setViewportSize(viewport);
+    await page.reload();
+    await page.locator("footer").scrollIntoViewIfNeeded();
+
+    const backToTop = page.getByRole("button", { name: "Retour en haut de la page" });
+    await expect(backToTop).toBeVisible();
+    await expect.poll(async () => {
+      const buttonBox = await backToTop.boundingBox();
+      const footerBox = await page.locator("footer").boundingBox();
+      if (!buttonBox || !footerBox) return 0;
+      return footerBox.y - (buttonBox.y + buttonBox.height);
+    }).toBeGreaterThanOrEqual(15);
+  }
+});
+
 test("laisse le contenu disponible sans JavaScript", async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();

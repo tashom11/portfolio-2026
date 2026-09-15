@@ -1,7 +1,7 @@
 .backToTop {
   position: fixed;
   right: max(1rem, var(--gutter));
-  bottom: calc(1rem + env(safe-area-inset-bottom));
+  bottom: calc(1rem + env(safe-area-inset-bottom) + var(--footer-offset, 0px));
   z-index: 30;
   display: grid;
   width: 3.25rem;
