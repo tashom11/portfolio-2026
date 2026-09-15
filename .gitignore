@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+
+# Next.js
+.next/
+out/
+
+# Production
+build/
+
+# Local environment files
+.env
+.env.local
+.env.*.local
+
+# Tooling and OS files
+.DS_Store
+Thumbs.db
+*.log
+.vercel/
+*.tsbuildinfo
+playwright-report/
+test-results/
+
+# Local editor settings
+.idea/
+.vscode/

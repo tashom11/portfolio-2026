@@ -1,0 +1,15 @@
+@use "../../styles/abstracts/mixins" as *;
+.list { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(4rem, 9vw, 9rem) clamp(1.5rem, 4vw, 4rem); padding-top: clamp(3rem, 6vw, 6rem); }
+.project { &:nth-child(3) { grid-column: 2; } &:hover { .mockup { transform: scale(1.018); } .titleRow svg { opacity: 1; transform: translate(0); } h3 { transform: translateX(.3rem); } } }
+.featured { grid-column: 1 / -1; .visual { aspect-ratio: 2 / 1; } }
+.visual { aspect-ratio: 4 / 3; overflow: hidden; position: relative; display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent); }
+.signal { background: #ff4d18; .mockup { background: var(--paper); width: 62%; height: 65%; } }
+.atlas { background: #232421; .visualIndex { color: #f2f0e9; } .mockup { background: #e3dfd4; color: #232421; transform: rotate(-4deg); width: 70%; height: 70%; } }
+.mono { background: #cbc8be; background-image: repeating-linear-gradient(90deg, transparent 0 11.9%, rgba(20,20,18,.12) 12% 12.15%); .mockup { width: 55%; height: 75%; background: #f5f3ed; } }
+.visualIndex { position: absolute; top: 1rem; left: 1rem; z-index: 2; font: .7rem var(--font-mono); }
+.mockup { padding: clamp(1rem, 3vw, 2.5rem); box-shadow: 0 1.5rem 4rem rgba(20,20,18,.18); display: flex; gap: .35rem; position: relative; transition: transform .7s cubic-bezier(.2,.8,.2,1); i { width: .4rem; height: .4rem; border-radius: 50%; background: currentColor; opacity: .35; } strong { position: absolute; inset: auto 1.5rem 1.5rem; font-size: clamp(1rem, 3vw, 2.8rem); letter-spacing: -.05em; line-height: .9; } }
+.meta { display: flex; justify-content: space-between; padding: 1rem 0 .65rem; font: .66rem var(--font-mono); text-transform: uppercase; color: var(--muted); }
+.titleRow { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--ink); padding: .85rem 0; h3 { font-size: clamp(1.8rem, 3.5vw, 3.6rem); font-weight: 520; letter-spacing: -.05em; transition: transform .3s ease; } svg { opacity: .35; transform: translate(-.35rem, .35rem); transition: .3s ease; } }
+.info { display: grid; grid-template-columns: 1.25fr 1fr; gap: 2rem; color: var(--muted); font-size: .88rem; line-height: 1.5; > div { display: flex; flex-direction: column; font: .62rem/1.7 var(--font-mono); text-transform: uppercase; } }
+@include below(md) { .list { grid-template-columns: 1fr; } .project, .featured, .project:nth-child(3) { grid-column: 1; } .visual, .featured .visual { aspect-ratio: 4 / 3; } }
+@include below(sm) { .info { grid-template-columns: 1fr; gap: 1rem; } }

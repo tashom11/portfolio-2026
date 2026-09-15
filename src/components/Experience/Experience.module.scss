@@ -1,0 +1,9 @@
+@use "../../styles/abstracts/mixins" as *;
+.rows { margin-top: 2rem; }
+.row { display: grid; grid-template-columns: 1fr 1.35fr 1.5fr 2rem; gap: 2rem; padding: 2rem 0 3.5rem; border-bottom: 1px solid var(--line); h3 { font-size: clamp(1.5rem, 2.5vw, 2.6rem); font-weight: 520; letter-spacing: -.04em; } > div:nth-child(3) { color: var(--muted); line-height: 1.55; max-width: 34rem; } }
+.period, .index, .focus { font: .65rem/1.5 var(--font-mono); text-transform: uppercase; letter-spacing: .04em; }
+.company { color: var(--accent); margin-top: .25rem; }
+.focus { display: block; margin-top: 1.4rem; color: var(--ink); }
+.index { text-align: right; color: var(--muted); }
+@include below(md) { .row { grid-template-columns: 1fr 1.5fr; .index { display: none; } } }
+@include below(sm) { .row { grid-template-columns: 1fr; gap: 1rem; } }

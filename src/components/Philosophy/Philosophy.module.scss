@@ -1,0 +1,5 @@
+@use "../../styles/abstracts/mixins" as *;
+.kicker { font: .68rem var(--font-mono); text-transform: uppercase; color: var(--accent); }
+.philosophy h2 { font-size: clamp(2.8rem, 7vw, 7rem); line-height: .95; letter-spacing: -.065em; font-weight: 520; margin: 1.2rem 0 clamp(4rem, 9vw, 9rem); em { font-style: italic; font-weight: 400; color: var(--muted); } }
+.philosophy ol { border-top: 1px solid var(--ink); li { display: grid; grid-template-columns: 4rem 1fr 1fr; padding: 1.3rem 0; border-bottom: 1px solid var(--line); align-items: baseline; } span { font: .65rem var(--font-mono); color: var(--accent); } h3 { font-weight: 540; } p { color: var(--muted); } }
+@include below(sm) { .philosophy ol li { grid-template-columns: 2rem 1fr; p { grid-column: 2; margin-top: .4rem; } } }

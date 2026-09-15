@@ -1,0 +1,3 @@
+@use "../../styles/abstracts/mixins" as *;
+.heading { display: grid; grid-template-columns: 4rem 1fr auto; gap: 1rem; align-items: baseline; padding-bottom: 1.2rem; border-bottom: 1px solid var(--ink); span, p { font: .68rem/1.4 var(--font-mono); text-transform: uppercase; letter-spacing: .08em; } h2 { font-size: clamp(2rem, 4.5vw, 4.5rem); font-weight: 520; letter-spacing: -.055em; line-height: 1; } p { color: var(--muted); } }
+@include below(sm) { .heading { grid-template-columns: 2rem 1fr; p { display: none; } } }
