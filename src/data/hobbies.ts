@@ -12,6 +12,14 @@ const defaultHobbies: HobbyArticle[] = [
     date: "En continu",
     readingTime: "5 min",
     visual: "night",
+    links: [
+      { label: "Jellyfin", url: "https://jellyfin.org/" },
+      { label: "Navidrome", url: "https://navidrome.org/" },
+      { label: "Immich", url: "https://immich.app/" },
+      { label: "Pi-hole", url: "https://pi-hole.net/" },
+      { label: "Nginx Proxy Manager", url: "https://nginxproxymanager.com/" },
+      { label: "Beszel", url: "https://beszel.dev/" },
+    ],
     sections: [
       {
         title: "Retrouver ma médiathèque",
@@ -121,6 +129,7 @@ const isHobbyArticleArray = (value: unknown): value is HobbyArticle[] =>
   Array.isArray(value) && value.length > 0 && value.every((item) => {
     if (!item || typeof item !== "object") return false;
     const article = item as Record<string, unknown>;
+    const links = article.links;
     const sections = article.sections;
 
     return (
@@ -129,6 +138,14 @@ const isHobbyArticleArray = (value: unknown): value is HobbyArticle[] =>
       ) &&
       typeof article.visual === "string" &&
       visuals.has(article.visual as HobbyArticle["visual"]) &&
+      (links === undefined || (
+        Array.isArray(links) &&
+        links.every((link) => {
+          if (!link || typeof link !== "object") return false;
+          const candidate = link as Record<string, unknown>;
+          return typeof candidate.label === "string" && typeof candidate.url === "string";
+        })
+      )) &&
       Array.isArray(sections) &&
       sections.length > 0 &&
       sections.every((section) => {

@@ -118,6 +118,16 @@
     line-height: 1.75;
 
     + p { margin-top: 1.4rem; }
+
+    a {
+      color: var(--ink);
+      text-decoration: underline;
+      text-decoration-color: var(--accent);
+      text-decoration-thickness: .09em;
+      text-underline-offset: .16em;
+
+      &:hover { color: var(--accent); }
+    }
   }
 }
 

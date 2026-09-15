@@ -152,6 +152,17 @@ test("ne présente aucune violation détectable sur les pages Hobbies", async ({
   expect(results.violations).toEqual([]);
 });
 
+test("propose les sites officiels des services du homelab", async ({ page }) => {
+  await page.goto("/hobbies/homelab");
+
+  const services = ["Jellyfin", "Navidrome", "Immich", "Pi-hole", "Nginx Proxy Manager", "Beszel"];
+  for (const service of services) {
+    const link = page.getByRole("link", { name: `${service}, site officiel, nouvel onglet` });
+    await expect(link).toBeVisible();
+    await expect(link).toHaveAttribute("target", "_blank");
+  }
+});
+
 test.describe("avec réduction des animations", () => {
   test.use({ reducedMotion: "reduce" });
 

@@ -6,10 +6,33 @@ import BackToTop from "@/components/BackToTop/BackToTop";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import { getHobbyBySlug, hobbies } from "@/data/hobbies";
+import type { HobbyLink } from "@/types/hobby";
 
 import styles from "./HobbyArticle.module.scss";
 
 type Props = { params: Promise<{ slug: string }> };
+
+function LinkedText({ text, links = [] }: { text: string; links?: HobbyLink[] }) {
+  if (links.length === 0) return text;
+
+  const labels = links.map(({ label }) => label.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const parts = text.split(new RegExp(`(${labels.join("|")})`, "g"));
+
+  return parts.map((part, index) => {
+    const link = links.find(({ label }) => label === part);
+    return link ? (
+      <a
+        href={link.url}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`${link.label}, site officiel, nouvel onglet`}
+        key={`${part}-${index}`}
+      >
+        {part}
+      </a>
+    ) : part;
+  });
+}
 
 export function generateStaticParams() {
   return hobbies.map(({ slug }) => ({ slug }));
@@ -82,7 +105,9 @@ export default async function HobbyArticlePage({ params }: Props) {
                   <span aria-hidden="true">{String(index + 1).padStart(2, "0")}</span>
                   <div>
                     <h2 id={`section-title-${index + 1}`}>{section.title}</h2>
-                    {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+                    {section.paragraphs.map((paragraph) => (
+                      <p key={paragraph}><LinkedText text={paragraph} links={article.links} /></p>
+                    ))}
                   </div>
                 </section>
               ))}

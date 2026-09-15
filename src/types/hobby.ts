@@ -3,6 +3,11 @@ export type HobbySection = {
   paragraphs: string[];
 };
 
+export type HobbyLink = {
+  label: string;
+  url: string;
+};
+
 export type HobbyArticle = {
   slug: string;
   category: string;
@@ -12,5 +17,6 @@ export type HobbyArticle = {
   date: string;
   readingTime: string;
   visual: "ember" | "night" | "paper";
+  links?: HobbyLink[];
   sections: HobbySection[];
 };
