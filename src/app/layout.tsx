@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { DM_Mono, Instrument_Sans } from "next/font/google";
 import PageTransition from "@/components/PageTransition/PageTransition";
 import { profile } from "@/data/profile";
-import { getSiteUrl } from "@/utils/environment";
+import { getSiteUrl, isIndexingEnabled } from "@/utils/environment";
 import "@/styles/main.scss";
 
 const instrumentSans = Instrument_Sans({
@@ -39,6 +39,9 @@ export const metadata: Metadata = {
   },
   icons: { icon: "/icon.svg" },
   manifest: "/manifest.webmanifest",
+  robots: isIndexingEnabled()
+    ? { index: true, follow: true }
+    : { index: false, follow: false, nocache: true },
 };
 
 export const viewport: Viewport = {

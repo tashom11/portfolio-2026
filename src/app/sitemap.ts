@@ -1,8 +1,10 @@
 import type { MetadataRoute } from "next";
 import { hobbies } from "@/data/hobbies";
-import { getSiteUrl } from "@/utils/environment";
+import { getSiteUrl, isIndexingEnabled } from "@/utils/environment";
 
 export default function sitemap(): MetadataRoute.Sitemap {
+  if (!isIndexingEnabled()) return [];
+
   const siteUrl = getSiteUrl();
   const lastModified = new Date();
 

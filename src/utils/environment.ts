@@ -28,3 +28,7 @@ export function getSiteUrl() {
 
   return url.replace(/\/$/, "");
 }
+
+export function isIndexingEnabled() {
+  return process.env.PORTFOLIO_INDEXING_ENABLED?.trim().toLowerCase() !== "false";
+}

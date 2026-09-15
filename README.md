@@ -71,7 +71,8 @@ public/           # Icônes et manifeste
 2. Renseigner le profil, les liens publics et les textes de présentation.
 3. Fournir les expériences, compétences, centres d’intérêt, projets et articles Hobbies sous forme de tableaux JSON.
 4. Définir `PORTFOLIO_SITE_URL` avec l’adresse canonique du site.
-5. Remplacer les visuels CSS par des captures optimisées avec `next/image` si nécessaire.
+5. Utiliser `PORTFOLIO_INDEXING_ENABLED="false"` pour empêcher l’indexation d’un déploiement privé ou personnel.
+6. Remplacer les visuels CSS par des captures optimisées avec `next/image` si nécessaire.
 
 Les valeurs de démonstration intégrées au code permettent toujours de lancer le projet sans fichier d’environnement. `.env.local` est ignoré par Git et ne doit jamais être publié.
 
@@ -84,6 +85,8 @@ Importer le repository dans Vercel. Le framework et les commandes sont détecté
 - Version de Node.js : 20.9 minimum
 
 Ajouter les variables `PORTFOLIO_*` dans les paramètres du projet Vercel. Sans `PORTFOLIO_SITE_URL`, le site utilise automatiquement `VERCEL_PROJECT_PRODUCTION_URL` pour les métadonnées, le sitemap et le fichier robots.
+
+L’indexation reste active par défaut. Pour la désactiver sur un déploiement précis sans modifier le projet générique, ajouter `PORTFOLIO_INDEXING_ENABLED=false` dans Vercel puis redéployer.
 
 ## Licence
 
