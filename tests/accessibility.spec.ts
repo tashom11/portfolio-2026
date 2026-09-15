@@ -176,13 +176,20 @@ test("ouvre la page Hobbies en haut", async ({ page }) => {
 
 test("rejoue la transition entre les pages", async ({ page }) => {
   const transition = page.locator("[data-page-transition]");
-  await transition.evaluate((element) => element.setAttribute("data-previous-page", "true"));
+  await expect(transition).toHaveCount(0);
 
   await page.getByRole("link", { name: "Hobbies" }).click();
 
   await expect(page).toHaveURL(/\/hobbies$/);
-  await expect(transition).not.toHaveAttribute("data-previous-page", "true");
+  await expect(transition).toHaveCount(1);
   await expect(transition.locator("span").first()).toHaveCSS("animation-name", /reveal-page/);
+});
+
+test("ne joue pas la transition pour une ancre de l’accueil", async ({ page }) => {
+  await page.getByRole("link", { name: "Projets" }).click();
+
+  await expect(page).toHaveURL(/\/#projets$/);
+  await expect(page.locator("[data-page-transition]")).toHaveCount(0);
 });
 
 test.describe("avec réduction des animations", () => {

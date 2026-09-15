@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Mono, Instrument_Sans } from "next/font/google";
+import PageTransition from "@/components/PageTransition/PageTransition";
 import { profile } from "@/data/profile";
 import { getSiteUrl } from "@/utils/environment";
 import "@/styles/main.scss";
@@ -52,7 +53,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       className={`${instrumentSans.variable} ${dmMono.variable}`}
       data-scroll-behavior="smooth"
     >
-      <body>{children}</body>
+      <body>
+        <PageTransition />
+        {children}
+      </body>
     </html>
   );
 }
