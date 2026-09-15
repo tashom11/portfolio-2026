@@ -1,0 +1,34 @@
+.transition {
+  position: fixed;
+  z-index: 1000;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+
+  span {
+    position: absolute;
+    inset: 0;
+    transform: translateY(0);
+    will-change: transform;
+  }
+}
+
+.accentPanel {
+  background: var(--accent);
+  animation: reveal-page .72s cubic-bezier(.76, 0, .24, 1) .12s both;
+}
+
+.inkPanel {
+  z-index: 1;
+  background: var(--ink);
+  animation: reveal-page .64s cubic-bezier(.76, 0, .24, 1) .04s both;
+}
+
+@keyframes reveal-page {
+  0%, 14% { transform: translateY(0); }
+  100% { transform: translateY(-101%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .transition { display: none; }
+}

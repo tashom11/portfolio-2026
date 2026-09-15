@@ -174,10 +174,22 @@ test("ouvre la page Hobbies en haut", async ({ page }) => {
   await expect.poll(() => page.evaluate(() => window.scrollY)).toBe(0);
 });
 
+test("rejoue la transition entre les pages", async ({ page }) => {
+  const transition = page.locator("[data-page-transition]");
+  await transition.evaluate((element) => element.setAttribute("data-previous-page", "true"));
+
+  await page.getByRole("link", { name: "Hobbies" }).click();
+
+  await expect(page).toHaveURL(/\/hobbies$/);
+  await expect(transition).not.toHaveAttribute("data-previous-page", "true");
+  await expect(transition.locator("span").first()).toHaveCSS("animation-name", /reveal-page/);
+});
+
 test.describe("avec réduction des animations", () => {
   test.use({ reducedMotion: "reduce" });
 
   test("rend immédiatement tous les contenus", async ({ page }) => {
+    await expect(page.locator("[data-page-transition]")).toBeHidden();
     await expect(page.locator(".reveal").first()).toHaveCSS("opacity", "1");
     await expect(page.locator(".reveal").first()).toHaveCSS("transform", "none");
   });
