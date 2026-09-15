@@ -192,6 +192,27 @@ test("ne joue pas la transition pour une ancre de l’accueil", async ({ page })
   await expect(page.locator("[data-page-transition]")).toHaveCount(0);
 });
 
+test("propose une page 404 accessible et utile", async ({ page }) => {
+  const response = await page.goto("/page-absente");
+
+  expect(response?.status()).toBe(404);
+  await expect(page.getByRole("heading", { name: "Cette page n’existe pas." })).toBeVisible();
+  await expect(page.locator("main").getByRole("link", { name: /Retour à l’accueil/ })).toBeVisible();
+  await expect(page.getByRole("link", { name: /Découvrir Hobbies/ })).toBeVisible();
+
+  await page.setViewportSize({ width: 320, height: 720 });
+  const dimensions = await page.evaluate(() => ({
+    viewport: window.innerWidth,
+    content: document.documentElement.scrollWidth,
+  }));
+  expect(dimensions.content).toBeLessThanOrEqual(dimensions.viewport);
+
+  const results = await new AxeBuilder({ page })
+    .withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"])
+    .analyze();
+  expect(results.violations).toEqual([]);
+});
+
 test.describe("avec réduction des animations", () => {
   test.use({ reducedMotion: "reduce" });
 
