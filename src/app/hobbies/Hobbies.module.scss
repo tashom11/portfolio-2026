@@ -57,6 +57,8 @@
 }
 
 .card {
+  min-width: 0;
+
   &:first-of-type { grid-column: 1 / -1; }
 
   a { display: block; }
@@ -156,7 +158,7 @@
 @include below(md) {
   .hero { min-height: 42rem; }
   .heroCopy { grid-template-columns: 1fr; align-content: center; gap: 3rem; }
-  .articles { grid-template-columns: 1fr; }
+  .articles { grid-template-columns: minmax(0, 1fr); }
   .card:first-of-type { grid-column: auto; }
   .visual, .card:not(:first-of-type) .visual { min-height: clamp(21rem, 75vw, 32rem); }
 }
@@ -166,5 +168,5 @@
   .heroCopy { gap: 2rem; }
   .heroCopy h1 { font-size: clamp(4.5rem, 23vw, 6.5rem); line-height: .88; }
   .cardMeta { align-items: flex-start; flex-direction: column; gap: .25rem; }
-  .visual strong, .card:not(:first-of-type) .visual strong { font-size: clamp(2.6rem, 16vw, 4.5rem); }
+  .visual strong, .card:not(:first-of-type) .visual strong { font-size: clamp(2.25rem, 12vw, 4.5rem); }
 }
