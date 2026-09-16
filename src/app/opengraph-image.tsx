@@ -1,5 +1,6 @@
 import { ImageResponse } from "next/og";
 import { profile } from "@/data/profile";
+import { accentColor } from "@/data/theme";
 
 export const alt = `${profile.name}, ${profile.role}, portfolio`;
 export const size = { width: 1200, height: 630 };
@@ -21,11 +22,11 @@ export default function OpenGraphImage() {
       }}
     >
       <div style={{ display: "flex", justifyContent: "space-between", fontSize: 22 }}>
-        <strong>{profile.name} <span style={{ color: "#c92f08" }}>®</span></strong>
+        <strong>{profile.name} <span style={{ color: accentColor }}>®</span></strong>
         <span>{profile.role} · {profile.location}</span>
       </div>
       <div style={{ display: "flex", flexWrap: "wrap", fontSize: 104, lineHeight: .88, letterSpacing: "-7px", maxWidth: 1000 }}>
-        Des idées aux expériences <span style={{ color: "#c92f08" }}>utiles.</span>
+        Des idées aux expériences <span style={{ color: accentColor }}>utiles.</span>
       </div>
       <div style={{ display: "flex", justifyContent: "space-between", fontSize: 20, borderTop: "2px solid #181815", paddingTop: 20 }}>
         <span>{profile.yearsExperience} ans d’expérience</span><span>Portfolio · {new Date().getFullYear()}</span>

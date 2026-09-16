@@ -1,8 +1,10 @@
+import type { CSSProperties } from "react";
 import type { Metadata, Viewport } from "next";
 import { DM_Mono, Instrument_Sans } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import PageTransition from "@/components/PageTransition/PageTransition";
 import { profile } from "@/data/profile";
+import { accentColor } from "@/data/theme";
 import { getSiteUrl, isIndexingEnabled } from "@/utils/environment";
 import "@/styles/main.scss";
 
@@ -38,7 +40,6 @@ export const metadata: Metadata = {
     title: `${profile.name} | ${profile.role}`,
     description: "Interfaces utiles, rapides et soigneusement construites.",
   },
-  icons: { icon: "/icon.svg" },
   manifest: "/manifest.webmanifest",
   robots: isIndexingEnabled()
     ? { index: true, follow: true }
@@ -56,6 +57,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       lang="fr"
       className={`${instrumentSans.variable} ${dmMono.variable}`}
       data-scroll-behavior="smooth"
+      style={{ "--accent": accentColor } as CSSProperties}
     >
       <body>
         <PageTransition />

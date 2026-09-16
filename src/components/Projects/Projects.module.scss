@@ -3,7 +3,7 @@
 .project { &:nth-child(3) { grid-column: 2; } &:hover { .mockup { transform: scale(1.018); } .browserMockup { transform: rotate(var(--mockup-rotation)) translateY(-.35rem) scale(1.018); } .titleRow svg { opacity: 1; transform: translate(0); } h3 { transform: translateX(.3rem); } } }
 .featured { grid-column: 1 / -1; .visual { aspect-ratio: 2 / 1; } }
 .visual { aspect-ratio: 4 / 3; overflow: hidden; position: relative; display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent); }
-.signal { background: #ff4d18; .mockup { background: var(--paper); width: 62%; height: 65%; } .browserMockup { --mockup-rotation: -1deg; width: 82%; height: 77%; } }
+.signal { background: var(--accent-surface); .mockup { background: var(--paper); width: 62%; height: 65%; } .browserMockup { --mockup-rotation: -1deg; width: 82%; height: 77%; } }
 .atlas { background: #232421; .visualIndex { color: #f2f0e9; } .mockup { background: #e3dfd4; color: #232421; transform: rotate(-4deg); width: 70%; height: 70%; } .browserMockup { --mockup-rotation: -3deg; width: 76%; height: 78%; } }
 .mono { background: #cbc8be; background-image: repeating-linear-gradient(90deg, transparent 0 11.9%, rgba(20,20,18,.12) 12% 12.15%); .mockup { width: 55%; height: 75%; background: #f5f3ed; } .browserMockup { --mockup-rotation: 2deg; width: 76%; height: 79%; } }
 .visualIndex { position: absolute; top: 1rem; left: 1rem; z-index: 2; padding: .35rem .45rem; color: var(--paper); background: color-mix(in srgb, var(--ink) 88%, transparent); backdrop-filter: blur(.35rem); font: .7rem var(--font-mono); }

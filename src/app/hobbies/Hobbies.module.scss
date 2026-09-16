@@ -124,7 +124,7 @@
   strong { font-size: clamp(2.5rem, 6vw, 6rem); }
 }
 
-.ember { color: var(--ink); background: #ed5522; }
+.ember { color: var(--ink); background: var(--accent-surface); }
 .night { color: var(--paper); background: #20211e; }
 .paper { color: var(--ink); background: #d6d1c5; }
 
