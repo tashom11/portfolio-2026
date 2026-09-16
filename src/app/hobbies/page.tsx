@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import BackToTop from "@/components/BackToTop/BackToTop";
+import ArrowIcon from "@/components/ArrowIcon";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import { hobbies } from "@/data/hobbies";
@@ -53,7 +54,7 @@ export default function HobbiesPage() {
                 <h3>{article.title}</h3>
                 <div className={styles.cardFooter}>
                   <p>{article.excerpt}</p>
-                  <span aria-hidden="true">↗</span>
+                  <ArrowIcon />
                 </div>
               </Link>
             </article>

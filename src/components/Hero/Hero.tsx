@@ -11,7 +11,7 @@ export default function Hero() {
           <span>en expériences <em>utiles.</em></span>
         </h1>
         <div className={styles.bottom}>
-          <p>{profile.yearsExperience} ans d’expérience avec une spécialisation dans {profile.specialty}.</p>
+          <p>{profile.yearsExperience} ans d’expérience avec une spécialisation sur {profile.specialty}.</p>
           <div className={styles.availability}><i aria-hidden="true" />{profile.availability}</div>
         </div>
         <div className={styles.orbit} aria-hidden="true"><span>{profile.yearsExperience}</span><small>années<br />d’expérience</small></div>

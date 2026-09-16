@@ -1,5 +1,6 @@
 import Link from "next/link";
 
+import ArrowIcon from "@/components/ArrowIcon";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 
@@ -23,10 +24,10 @@ export default function NotFound() {
             </p>
             <nav className={styles.actions} aria-label="Continuer la navigation">
               <Link className={styles.primary} href="/">
-                Retour à l’accueil <span aria-hidden="true">↖</span>
+                Retour à l’accueil <ArrowIcon direction="up-left" />
               </Link>
               <Link className={styles.secondary} href="/hobbies">
-                Découvrir Hobbies <span aria-hidden="true">↗</span>
+                Découvrir Hobbies <ArrowIcon />
               </Link>
             </nav>
           </div>

@@ -14,9 +14,9 @@ export default function Contact() {
         <CopyEmail email={profile.email} />
       </div>
       <nav className={styles.socials} aria-label="Réseaux sociaux">
-        <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <span aria-hidden="true">↗</span><span className="sr-only">, nouvel onglet</span></a>
-        <a href={profile.github} target="_blank" rel="noreferrer">{profile.githubLabel} <span aria-hidden="true">↗</span><span className="sr-only">, nouvel onglet</span></a>
-        <a href={profile.repository} target="_blank" rel="noreferrer">Code source <span aria-hidden="true">↗</span><span className="sr-only">, nouvel onglet</span></a>
+        <a href={profile.linkedin} target="_blank" rel="noreferrer">LinkedIn <ArrowIcon /><span className="sr-only">, nouvel onglet</span></a>
+        <a href={profile.github} target="_blank" rel="noreferrer">{profile.githubLabel} <ArrowIcon /><span className="sr-only">, nouvel onglet</span></a>
+        <a href={profile.repository} target="_blank" rel="noreferrer">Code source <ArrowIcon /><span className="sr-only">, nouvel onglet</span></a>
       </nav>
     </section>
   );

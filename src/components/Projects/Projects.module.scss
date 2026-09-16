@@ -1,12 +1,16 @@
 @use "../../styles/abstracts/mixins" as *;
 .list { display: grid; grid-template-columns: 1.1fr .9fr; gap: clamp(4rem, 9vw, 9rem) clamp(1.5rem, 4vw, 4rem); padding-top: clamp(3rem, 6vw, 6rem); }
-.project { &:nth-child(3) { grid-column: 2; } &:hover { .mockup { transform: scale(1.018); } .titleRow svg { opacity: 1; transform: translate(0); } h3 { transform: translateX(.3rem); } } }
+.project { &:nth-child(3) { grid-column: 2; } &:hover { .mockup { transform: scale(1.018); } .browserMockup { transform: rotate(var(--mockup-rotation)) translateY(-.35rem) scale(1.018); } .titleRow svg { opacity: 1; transform: translate(0); } h3 { transform: translateX(.3rem); } } }
 .featured { grid-column: 1 / -1; .visual { aspect-ratio: 2 / 1; } }
 .visual { aspect-ratio: 4 / 3; overflow: hidden; position: relative; display: grid; place-items: center; border: 1px solid color-mix(in srgb, var(--ink) 12%, transparent); }
-.signal { background: #ff4d18; .mockup { background: var(--paper); width: 62%; height: 65%; } }
-.atlas { background: #232421; .visualIndex { color: #f2f0e9; } .mockup { background: #e3dfd4; color: #232421; transform: rotate(-4deg); width: 70%; height: 70%; } }
-.mono { background: #cbc8be; background-image: repeating-linear-gradient(90deg, transparent 0 11.9%, rgba(20,20,18,.12) 12% 12.15%); .mockup { width: 55%; height: 75%; background: #f5f3ed; } }
-.visualIndex { position: absolute; top: 1rem; left: 1rem; z-index: 2; font: .7rem var(--font-mono); }
+.signal { background: #ff4d18; .mockup { background: var(--paper); width: 62%; height: 65%; } .browserMockup { --mockup-rotation: -1deg; width: 82%; height: 77%; } }
+.atlas { background: #232421; .visualIndex { color: #f2f0e9; } .mockup { background: #e3dfd4; color: #232421; transform: rotate(-4deg); width: 70%; height: 70%; } .browserMockup { --mockup-rotation: -3deg; width: 76%; height: 78%; } }
+.mono { background: #cbc8be; background-image: repeating-linear-gradient(90deg, transparent 0 11.9%, rgba(20,20,18,.12) 12% 12.15%); .mockup { width: 55%; height: 75%; background: #f5f3ed; } .browserMockup { --mockup-rotation: 2deg; width: 76%; height: 79%; } }
+.visualIndex { position: absolute; top: 1rem; left: 1rem; z-index: 2; padding: .35rem .45rem; color: var(--paper); background: color-mix(in srgb, var(--ink) 88%, transparent); backdrop-filter: blur(.35rem); font: .7rem var(--font-mono); }
+.browserMockup { --mockup-rotation: 0deg; z-index: 1; display: flex; flex-direction: column; overflow: hidden; border: 1px solid rgba(24,24,21,.28); border-radius: clamp(.35rem, .8vw, .75rem); background: #f4f2ec; box-shadow: 0 1.5rem 4rem rgba(20,20,18,.25); transform: rotate(var(--mockup-rotation)); transition: transform .7s cubic-bezier(.2,.8,.2,1); }
+.browserBar { flex: 0 0 clamp(1.5rem, 3vw, 2.25rem); display: flex; align-items: center; gap: clamp(.2rem, .4vw, .35rem); padding-inline: clamp(.5rem, 1.2vw, .9rem); color: #5f5f59; background: #ebe9e2; border-bottom: 1px solid rgba(24,24,21,.14); span { width: clamp(.25rem, .5vw, .4rem); aspect-ratio: 1; border-radius: 50%; background: currentColor; opacity: .45; } small { position: absolute; left: 50%; transform: translateX(-50%); font: clamp(.42rem, .7vw, .62rem)/1 var(--font-mono); letter-spacing: .02em; } }
+.browserScreen { position: relative; flex: 1; min-height: 0; overflow: hidden; background: #fff; }
+.screenshot { object-fit: cover; object-position: top center; }
 .mockup { padding: clamp(1rem, 3vw, 2.5rem); box-shadow: 0 1.5rem 4rem rgba(20,20,18,.18); display: flex; gap: .35rem; position: relative; transition: transform .7s cubic-bezier(.2,.8,.2,1); i { width: .4rem; height: .4rem; border-radius: 50%; background: currentColor; opacity: .35; } strong { position: absolute; inset: auto 1.5rem 1.5rem; font-size: clamp(1rem, 3vw, 2.8rem); letter-spacing: -.05em; line-height: .9; } }
 .meta { display: flex; justify-content: space-between; padding: 1rem 0 .65rem; font: .66rem var(--font-mono); text-transform: uppercase; color: var(--muted); }
 .titleRow { display: flex; align-items: center; justify-content: space-between; border-top: 1px solid var(--ink); padding: .85rem 0; h3 { font-size: clamp(1.8rem, 3.5vw, 3.6rem); font-weight: 520; letter-spacing: -.05em; transition: transform .3s ease; } svg { opacity: .35; transform: translate(-.35rem, .35rem); transition: .3s ease; } }
