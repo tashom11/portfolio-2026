@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Mono, Instrument_Sans } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import PageTransition from "@/components/PageTransition/PageTransition";
 import { profile } from "@/data/profile";
 import { getSiteUrl, isIndexingEnabled } from "@/utils/environment";
@@ -59,6 +60,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body>
         <PageTransition />
         {children}
+        <Analytics />
       </body>
     </html>
   );
