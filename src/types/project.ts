@@ -8,6 +8,7 @@ export type Project = {
   technologies: string[];
   url?: string;
   repository?: string;
+  image?: string;
   visual: "signal" | "atlas" | "mono";
   featured?: boolean;
 };

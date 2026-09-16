@@ -3,16 +3,22 @@ import ArrowIcon from "@/components/ArrowIcon";
 import type { Project } from "@/types/project";
 import styles from "./Projects.module.scss";
 
-const projectScreenshots: Record<string, { src: string; domain: string }> = {
-  ennolys: { src: "/projects/ennolys.jpg", domain: "ennolys.fr" },
-  "loca-service": { src: "/projects/loca-service.jpg", domain: "loca-service.com" },
-  recoltia: { src: "/projects/recoltia.jpg", domain: "recoltia.fr" },
-};
-
 const agencyProjects = new Set(["ennolys", "loca-service"]);
 
+const getDomain = (url?: string) => {
+  if (!url) return "Projet web";
+
+  try {
+    return new URL(url).hostname.replace(/^www\./, "");
+  } catch {
+    return "Projet web";
+  }
+};
+
 export default function ProjectShowcase({ project, index }: { project: Project; index: number }) {
-  const screenshot = projectScreenshots[project.slug];
+  const screenshot = project.image
+    ? { src: `/api/project-images/${encodeURIComponent(project.slug)}`, domain: getDomain(project.url) }
+    : undefined;
 
   return (
     <article className={`${styles.project} ${project.featured ? styles.featured : ""} reveal`}>

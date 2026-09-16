@@ -39,6 +39,11 @@ const defaultProjects: Project[] = [
 ];
 
 const visuals = new Set<Project["visual"]>(["signal", "atlas", "mono"]);
+const isStringRecord = (value: unknown): value is Record<string, string> => {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return false;
+  return Object.values(value).every((item) => typeof item === "string");
+};
+
 const isProjectArray = (value: unknown): value is Project[] =>
   Array.isArray(value) && value.every((item) => {
     if (!item || typeof item !== "object") return false;
@@ -47,9 +52,20 @@ const isProjectArray = (value: unknown): value is Project[] =>
       ["slug", "title", "year", "context", "role", "description"].every((key) => typeof project[key] === "string") &&
       Array.isArray(project.technologies) &&
       project.technologies.every((technology) => typeof technology === "string") &&
+      (project.image === undefined || typeof project.image === "string") &&
       typeof project.visual === "string" &&
       visuals.has(project.visual as Project["visual"])
     );
   });
 
-export const projects = readEnvironmentJson("PORTFOLIO_PROJECTS_JSON", defaultProjects, isProjectArray);
+const configuredProjects = readEnvironmentJson("PORTFOLIO_PROJECTS_JSON", defaultProjects, isProjectArray);
+const projectImages = readEnvironmentJson<Record<string, string>>(
+  "PORTFOLIO_PROJECT_IMAGES_JSON",
+  {},
+  isStringRecord,
+);
+
+export const projects = configuredProjects.map((project) => ({
+  ...project,
+  image: projectImages[project.slug] ?? project.image,
+}));
