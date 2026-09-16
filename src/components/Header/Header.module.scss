@@ -6,7 +6,7 @@
 .links { display: flex; gap: clamp(1.2rem, 3vw, 2.8rem); font-size: .84rem; a { position: relative; } a::after { content: ""; position: absolute; inset: auto 0 -.35rem; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .3s ease; } a:hover::after, a:focus-visible::after { transform: scaleX(1); transform-origin: left; } }
 .actions { justify-self: end; display: flex; gap: clamp(.8rem, 2vw, 1.6rem); align-items: center; font-size: .84rem; }
 .hobbies { position: relative; &::after { content: ""; position: absolute; inset: auto 0 -.35rem; height: 1px; background: currentColor; transform: scaleX(0); transform-origin: right; transition: transform .3s ease; } &:hover::after, &:focus-visible::after { transform: scaleX(1); transform-origin: left; } }
-.contact { display: flex; gap: .55rem; align-items: center; }
+.contact { display: flex; gap: .55rem; align-items: center; svg { width: .9rem; height: .9rem; flex: 0 0 auto; } }
 .contactShort { display: none; }
 @include below(md) { .inner { grid-template-columns: 1fr auto; height: 4.75rem; } .mainNav { display: none; } .actions { font-size: .78rem; } }
 @include below(sm) { .actions { gap: .7rem; } .contactLong { display: none; } .contactShort { display: inline; } }

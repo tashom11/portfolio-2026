@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import BackToTop from "@/components/BackToTop/BackToTop";
+import ArrowIcon from "@/components/ArrowIcon";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import { getHobbyBySlug, hobbies } from "@/data/hobbies";
@@ -74,7 +75,7 @@ export default async function HobbyArticlePage({ params }: Props) {
       <main id="contenu" tabIndex={-1}>
         <article>
           <header className={`${styles.hero} shell`}>
-            <Link className={styles.back} href="/hobbies"><span aria-hidden="true">←</span> Tous les hobbies</Link>
+            <Link className={styles.back} href="/hobbies"><ArrowIcon direction="left" /> Tous les hobbies</Link>
             <div className={styles.meta}>
               <span>{article.category}</span>
               <span>{article.date} · {article.readingTime}</span>

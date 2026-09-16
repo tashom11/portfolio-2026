@@ -19,8 +19,8 @@
   text-transform: uppercase;
   letter-spacing: .06em;
 
-  span { font-size: 1rem; transition: transform .2s ease; }
-  &:hover span, &:focus-visible span { transform: translateX(-.25rem); }
+  svg { width: 1rem; height: 1rem; transition: transform .2s ease; }
+  &:hover svg, &:focus-visible svg { transform: translateX(-.25rem); }
 }
 
 .meta {

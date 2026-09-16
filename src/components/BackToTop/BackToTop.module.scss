@@ -18,6 +18,8 @@
   transform: translateY(.75rem);
   transition: opacity .25s ease, transform .25s ease, visibility .25s ease, background-color .2s ease;
 
+  svg { width: 1.375rem; height: 1.375rem; }
+
   &:hover {
     background: var(--accent);
   }

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
+import ArrowIcon from "@/components/ArrowIcon";
 import styles from "./BackToTop.module.scss";
 
 export default function BackToTop() {
@@ -54,9 +55,7 @@ export default function BackToTop() {
       tabIndex={isVisible ? 0 : -1}
       onClick={scrollToTop}
     >
-      <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22">
-        <path d="M12 20V4M5 11l7-7 7 7" fill="none" stroke="currentColor" strokeWidth="1.5" />
-      </svg>
+      <ArrowIcon direction="up" />
     </button>
   );
 }

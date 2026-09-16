@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ArrowIcon from "@/components/ArrowIcon";
 import { profile } from "@/data/profile";
 import styles from "./Header.module.scss";
 
@@ -25,7 +26,7 @@ export default function Header() {
           <Link className={styles.contact} href="/#contact">
             <span className={styles.contactLong}>Me contacter</span>
             <span className={styles.contactShort}>Contact</span>
-            <span aria-hidden="true">↘</span>
+            <ArrowIcon direction="down-right" />
           </Link>
         </div>
       </div>
