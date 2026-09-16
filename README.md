@@ -71,7 +71,7 @@ public/           # Icônes et manifeste
 2. Renseigner le profil, les liens publics et les textes de présentation.
 3. Fournir les expériences, compétences, centres d’intérêt, projets et articles Hobbies sous forme de tableaux JSON.
 4. Définir `PORTFOLIO_SITE_URL` avec l’adresse canonique du site.
-5. Définir `PORTFOLIO_ACCENT_COLOR` avec une couleur hexadécimale pour personnaliser toute la couleur d’accentuation du site.
+5. Définir `PORTFOLIO_ACCENT_COLOR` pour les détails et `PORTFOLIO_ACCENT_SURFACE_COLOR` pour les grands aplats colorés.
 6. Utiliser `PORTFOLIO_INDEXING_ENABLED="false"` pour empêcher l’indexation d’un déploiement privé ou personnel.
 7. Pour afficher des captures hébergées dans un store Vercel Blob privé, renseigner `PORTFOLIO_PROJECT_IMAGES_JSON` avec un objet associant chaque slug à son pathname (par exemple `{"projet-exemple":"projet-exemple.jpg"}`). Sans image, le visuel CSS sert de fallback.
 

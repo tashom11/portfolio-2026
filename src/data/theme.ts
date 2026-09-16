@@ -1,10 +1,14 @@
 import { readEnvironmentValue } from "@/utils/environment";
 
-const defaultAccentColor = "#c92f08";
-const configuredAccentColor = readEnvironmentValue("PORTFOLIO_ACCENT_COLOR", defaultAccentColor);
+const readHexColor = (name: string, fallback: string) => {
+  const color = readEnvironmentValue(name, fallback);
 
-if (!/^#[0-9a-f]{6}$/i.test(configuredAccentColor)) {
-  throw new Error("La variable PORTFOLIO_ACCENT_COLOR doit être une couleur hexadécimale, par exemple #c92f08.");
-}
+  if (!/^#[0-9a-f]{6}$/i.test(color)) {
+    throw new Error(`La variable ${name} doit être une couleur hexadécimale, par exemple ${fallback}.`);
+  }
 
-export const accentColor = configuredAccentColor;
+  return color;
+};
+
+export const accentColor = readHexColor("PORTFOLIO_ACCENT_COLOR", "#c92f08");
+export const accentSurfaceColor = readHexColor("PORTFOLIO_ACCENT_SURFACE_COLOR", "#ff5a26");
